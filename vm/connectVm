@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Fill those Params
+ip=192.168.56.106
+userName=reds
+
+
+ssh $userName@$ip -o ConnectTimeout=60 -Y 

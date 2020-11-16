@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Fill those Params
+ip=192.168.56.106
+vmName="reds2020-09"
+mountFolder=/mnt/reds
+userName=reds
+
+
+vboxmanage startvm $vmName --type headless
+
+echo "wait on host up"
+until ping -c1 $ip >/dev/null 2>&1; do :; done
+echo "host up"
+sleep 5
+mkdir -p $mountFolder
+sshfs $userName@$ip:/ /mnt/reds/
+ssh $userName@$ip -o ConnectTimeout=60 -Y 

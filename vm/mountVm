@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#Fill those Params
+ip=192.168.56.106
+mountFolder=/mnt/reds
+userName=reds
+
+mkdir -p $mountFolder
+sshfs $userName@$ip:/ /mnt/reds/
